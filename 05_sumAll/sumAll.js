@@ -1,5 +1,25 @@
-const sumAll = function() {
+const sumAll = function(start, end) {
+  // Check for non-integer or non-number parameters
+  if (typeof start !== 'number' || typeof end !== 'number' || !Number.isInteger(start) || !Number.isInteger(end)) {
+    return 'ERROR';
+  }
 
+  // Check for negative numbers
+  if (start < 0 || end < 0) {
+    return 'ERROR';
+  }
+
+  // Swap if start is greater than end
+  if (start > end) {
+    [start, end] = [end, start];
+  }
+
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
+
+  return sum;
 };
 
 // Do not edit below this line
